@@ -4,24 +4,26 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BS_Server.DTO
 {
-    public class BabysiterDTO
+    public class UsersDTO
     {
-        public int BabysiterId { get; set; }
+        public int Id { get; set; }
 
         public string? UserName { get; set; }
 
-        public string? Pass { get; set; }
 
-        public int? Age { get; set; }
+        public string? Password { get; set; }
 
-        public int? ExperienceY { get; set; }
-
-        public bool? License { get; set; }
 
         public string? Email { get; set; }
 
+
         public string? City { get; set; }
 
-        
+        public string? UserType { get; set; }
+
+
+        public virtual Babysiter? Babysiter { get; set; }
+
+        public virtual Parent? Parent { get; set; }
     }
 }

@@ -11,23 +11,15 @@ public partial class Babysiter
     [Key]
     public int BabysiterId { get; set; }
 
-    [StringLength(100)]
-    public string? UserName { get; set; }
-
-    [StringLength(50)]
-    public string? Pass { get; set; }
-
     public int? Age { get; set; }
 
     public int? ExperienceY { get; set; }
 
     public bool? License { get; set; }
 
-    [StringLength(100)]
-    public string? Email { get; set; }
-
-    [StringLength(100)]
-    public string? City { get; set; }
+    [ForeignKey("BabysiterId")]
+    [InverseProperty("Babysiter")]
+    public virtual User BabysiterNavigation { get; set; } = null!;
 
     [InverseProperty("Babysiter")]
     public virtual ICollection<WaitingLb> WaitingLbs { get; set; } = new List<WaitingLb>();

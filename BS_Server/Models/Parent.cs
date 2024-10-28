@@ -11,21 +11,13 @@ public partial class Parent
     [Key]
     public int ParentId { get; set; }
 
-    [StringLength(100)]
-    public string? UserName { get; set; }
-
-    [StringLength(50)]
-    public string? Pass { get; set; }
-
     public int? KidsN { get; set; }
 
     public bool? Pets { get; set; }
 
-    [StringLength(100)]
-    public string? Email { get; set; }
-
-    [StringLength(100)]
-    public string? City { get; set; }
+    [ForeignKey("ParentId")]
+    [InverseProperty("Parent")]
+    public virtual User ParentNavigation { get; set; } = null!;
 
     [InverseProperty("Parent")]
     public virtual ICollection<WaitingLb> WaitingLbs { get; set; } = new List<WaitingLb>();
