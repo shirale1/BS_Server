@@ -13,12 +13,12 @@ Go
 
   CREATE TABLE Users  
   (
-  id INT PRIMARY KEY Identity,                                                
-  UserName NVARCHAR(100),           
-  Password NVARCHAR(50),                                                            
+  id INT PRIMARY KEY Identity,  --מפתח ראשי(קוד המשתמש                                              
+  UserName NVARCHAR(100),      --שם משתמש   
+  Password NVARCHAR(50),    --סיסמה                                                        
   Email NVARCHAR(100),   --אימייל
-  City NVARCHAR(100), 
-  UserType NVARCHAR(100) --- 
+  City NVARCHAR(100),    --עיר מגורים
+  UserType NVARCHAR(100) -- סוג משתמש 
   );
 
 
@@ -48,14 +48,14 @@ CONSTRAINT FK_Babysiters FOREIGN KEY (BabysiterId) REFERENCES Users(id)
   Id INT PRIMARY KEY Identity,                                --מספר בקשה        
   ParentId int FOREIGN KEY(ParentId) REFERENCES Parents(ParentId),         --שם ההורה ששלח את הבקשה
   BabysiterId int FOREIGN KEY(BabysiterId) REFERENCES Babysiters(BabysiterId), --שם הבייביסיטר אליו נשלחה הבקשה
-  StatusCode int FOREIGN KEY(StatusCode)REFERENCES StatusTable(StatusId) ,                                                 --(סטטוס הבקשה (ממתין/אושר/נדחה 
+  StatusCode int FOREIGN KEY(StatusCode)REFERENCES StatusTable(StatusId) ,     --(סטטוס הבקשה (ממתין/אושר/נדחה 
   );
 
   CREATE TABLE WaitingLB(  --טבלת רשימת המתנה, בקשות שבייביסיטרים שלחו להורים
   Id INT PRIMARY KEY Identity,                                                 --מספר בקשה        
   ParentId int FOREIGN KEY(ParentId) REFERENCES Parents(ParentId),            --שם ההורה אליו נשלחה הבקשה
   BabysiterId int FOREIGN KEY(BabysiterId) REFERENCES Babysiters(BabysiterId),--שם הבייביסיטר ששלח את הבקשה
-  StatusCode int FOREIGN KEY(StatusCode)REFERENCES StatusTable(StatusId) ,                                                                 --(סטטוס הבקשה (ממתין/אושר/נדחה 
+  StatusCode int FOREIGN KEY(StatusCode)REFERENCES StatusTable(StatusId) ,    --(סטטוס הבקשה (ממתין/אושר/נדחה 
   );
 
    --Create a login for the admin user
@@ -70,12 +70,18 @@ Go
 ALTER ROLE db_owner ADD MEMBER [AdminUser];
 Go
 
+insert into Babysiters values (15,5,true)
+insert into Parents values (3,0)
+insert into StatusTable values ('approve')
+insert into StatusTable values ('decline')
+insert into StatusTable values ('waiting')
+insert into WaitingLb values ('approve')
+insert into Users values('shira','123','shira@gmail.com', 'hodash','babysiter') 
 
-select * from WaitingLP
-select * from WaitingLB
 select * from StatusTable
 Select * From Babysiters
 Select * From Users
+Select * From Parents
 
 --EF Code
 /*
