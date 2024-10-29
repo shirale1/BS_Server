@@ -6,6 +6,15 @@ namespace BS_Server.DTO
 {
     public class UsersDTO
     {
+        public UsersDTO(Models.User modeluser)
+        {
+            this.UserName = modeluser.UserName;
+            this.Password = modeluser.Password;
+            this.City = modeluser.City;
+            this.UserType= modeluser.UserType;
+            this.Email = modeluser.Email;
+            this.Id = modeluser.Id;
+        }
         public int Id { get; set; }
 
         public string? UserName { get; set; }
