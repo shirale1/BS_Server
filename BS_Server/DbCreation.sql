@@ -10,7 +10,7 @@ Go
 Use BS_DB
 Go
 
-
+--//ggg
   CREATE TABLE Users  
   (
   id INT PRIMARY KEY Identity,  --מפתח ראשי(קוד המשתמש                                              
