@@ -19,30 +19,46 @@ namespace BS_Server.Controllers
             this.webHostEnvironment = env;
         }
 
-        [HttpPost("register")]
-        public IActionResult Register([FromBody] DTO.UsersDTO userDto)
+        [HttpPost("registerParent")]
+        public IActionResult RegisterParent([FromBody] DTO.ParentDTO parentDto)
         {
             try
             {
                 HttpContext.Session.Clear(); //Logout any previous login attempt
 
-                //Get model user class from DB with matching email. 
-                Models.User modelsUser = new User()
-                {
-                    UserName = userDto.UserName,
-                    Email = userDto.Email,
-                    Password = userDto.Password,
-                    City = userDto.City,
-                    UserType = userDto.UserType,
-                    Id = userDto.Id,
-                };
-
-                context.Users.Add(modelsUser);
+                //Create model parent class to be written in the DB
+                Models.Parent modelsParent = parentDto.GetModel();
+              
+                context.Parents.Add(modelsParent);
                 context.SaveChanges();
 
                 //User was added!
-                DTO.UsersDTO dtoUser = new DTO.UsersDTO(modelsUser);
-                return Ok(dtoUser);
+                DTO.ParentDTO dtoParent = new DTO.ParentDTO(modelsParent);
+                return Ok(dtoParent);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+        }
+        [HttpPost("registerBabysiter")]
+        public IActionResult RegisterBabysiter([FromBody] DTO.BabysiterDTO babysiterDto)
+        {
+            try
+            {
+                HttpContext.Session.Clear(); //Logout any previous login attempt
+
+                //Create model babysiter class to be written in the DB
+                Models.Babysiter modelsBabysiter = babysiterDto.GetModel();
+            
+                context.Babysiters.Add(modelsBabysiter);
+                context.SaveChanges();
+
+                //User was added!
+                DTO.BabysiterDTO dtoBabysiter = new DTO.BabysiterDTO(modelsBabysiter);
+                return Ok(dtoBabysiter);
             }
             catch (Exception ex)
             {

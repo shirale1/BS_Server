@@ -13,7 +13,7 @@ Go
 --//ggg
   CREATE TABLE Users  
   (
-  id INT PRIMARY KEY Identity,  --מפתח ראשי(קוד המשתמש                                              
+  id INT PRIMARY KEY identity,  --מפתח ראשי(קוד המשתמש                                              
   UserName NVARCHAR(100),      --שם משתמש   
   Password NVARCHAR(50),    --סיסמה                                                        
   Email NVARCHAR(100),   --אימייל
@@ -23,7 +23,7 @@ Go
 
 
 CREATE TABLE Parents(    --טבלת הורים
-ParentId INT PRIMARY KEY Identity,      -- מפתח ראשי
+ParentId INT PRIMARY KEY,      -- מפתח ראשי
 KidsN INT,                              --מספר ילדים
 Pets Bit,                               --בעלי חיים
 CONSTRAINT FK_Parents FOREIGN KEY (ParentId) REFERENCES Users(id)          
@@ -31,7 +31,7 @@ CONSTRAINT FK_Parents FOREIGN KEY (ParentId) REFERENCES Users(id)
 
 
 CREATE TABLE Babysiters(  --טבלת בייביסיטרים
-BabysiterId INT PRIMARY KEY Identity,      -- מפתח ראשי
+BabysiterId INT PRIMARY KEY ,      -- מפתח ראשי
 Age INT,                                   --גיל
 ExperienceY INT,                           --שנות ניסיון
 License  Bit,                             --רשיון
@@ -70,7 +70,7 @@ Go
 ALTER ROLE db_owner ADD MEMBER [AdminUser];
 Go
 
-insert into Babysiters values (15,5,true)
+insert into Babysiters values (15,5,1)
 insert into Parents values (3,0)
 insert into StatusTable values ('approve')
 insert into StatusTable values ('decline')

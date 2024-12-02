@@ -6,12 +6,12 @@ namespace BS_Server.DTO
 {
     public class UsersDTO
     {
+        public UsersDTO() { }
         public UsersDTO(Models.User modeluser)
         {
             this.UserName = modeluser.UserName;
             this.Password = modeluser.Password;
             this.City = modeluser.City;
-            this.UserType= modeluser.UserType;
             this.Email = modeluser.Email;
             this.Id = modeluser.Id;
         }
@@ -28,11 +28,19 @@ namespace BS_Server.DTO
 
         public string? City { get; set; }
 
-        public string? UserType { get; set; }
+       public Models.User GetModel()
+       {
+            Models.User modeluser = new Models.User();
+            modeluser.UserName = this.UserName;
+            modeluser.Password = this.Password;
+            modeluser.City = this.City;
+            modeluser.Email = this.Email;
+            modeluser.Id = this.Id;
+
+            return modeluser;
+        }
 
 
-        public virtual Babysiter? Babysiter { get; set; }
-
-        public virtual Parent? Parent { get; set; }
+       
     }
 }
