@@ -11,7 +11,7 @@ namespace BS_Server.DTO
         {
             this.UserName = modeluser.UserName;
             this.Password = modeluser.Password;
-            this.City = modeluser.City;
+            this.Address = modeluser.Address;
             this.Email = modeluser.Email;
             this.Id = modeluser.Id;
         }
@@ -26,14 +26,14 @@ namespace BS_Server.DTO
         public string? Email { get; set; }
 
 
-        public string? City { get; set; }
+        public string? Address { get; set; }
 
        public Models.User GetModel()
        {
             Models.User modeluser = new Models.User();
             modeluser.UserName = this.UserName;
             modeluser.Password = this.Password;
-            modeluser.City = this.City;
+            modeluser.Address = this.Address;
             modeluser.Email = this.Email;
             modeluser.Id = this.Id;
 

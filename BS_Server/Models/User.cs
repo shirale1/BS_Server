@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BS_Server.Models;
 
+[Index("Email", Name = "UQ__Users__A9D10534E8759341", IsUnique = true)]
 public partial class User
 {
     [Key]
@@ -22,10 +23,7 @@ public partial class User
     public string? Email { get; set; }
 
     [StringLength(100)]
-    public string? City { get; set; }
-
-    [StringLength(100)]
-    public string? UserType { get; set; }
+    public string? Address { get; set; }
 
     [InverseProperty("BabysiterNavigation")]
     public virtual Babysiter? Babysiter { get; set; }

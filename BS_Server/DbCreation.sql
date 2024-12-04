@@ -15,10 +15,9 @@ Go
   (
   id INT PRIMARY KEY identity,  --מפתח ראשי(קוד המשתמש                                              
   UserName NVARCHAR(100),      --שם משתמש   
-  Password NVARCHAR(50),    --סיסמה                                                        
-  Email NVARCHAR(100),   --אימייל
-  City NVARCHAR(100),    --עיר מגורים
-  UserType NVARCHAR(100) -- סוג משתמש 
+  [Password] NVARCHAR(50),    --סיסמה                                                        
+  Email NVARCHAR(100) unique,   --אימייל
+  [Address] NVARCHAR(100),    --כתובת מגורים
   );
 
 
@@ -70,13 +69,17 @@ Go
 ALTER ROLE db_owner ADD MEMBER [AdminUser];
 Go
 
-insert into Babysiters values (15,5,1)
-insert into Parents values (3,0)
-insert into StatusTable values ('approve')
-insert into StatusTable values ('decline')
-insert into StatusTable values ('waiting')
-insert into WaitingLb values ('approve')
-insert into Users values('shira','123','shira@gmail.com', 'hodash','babysiter') 
+insert into StatusTable (StatusDescription) values ('Approve')
+insert into StatusTable (StatusDescription) values ('Decline')
+insert into StatusTable (StatusDescription) values ('Waiting')
+Go
+
+insert into Users (Email, [Address], [Password], UserName) VALUES ('b@b.com', 'Hod Hasharon', '123','B Name') 
+insert into Users (Email, [Address], [Password], UserName) VALUES ('p@p.com', 'Raanana', '123','P Name')
+
+insert into Babysiters (BabysiterId, Age, License, ExperienceY) values (1,15,0, 1)
+insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1)
+--insert into Users values('shira','123','shira@gmail.com', 'hodash','babysiter') 
 
 select * from StatusTable
 Select * From Babysiters
