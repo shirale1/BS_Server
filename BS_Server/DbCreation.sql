@@ -31,7 +31,7 @@ CONSTRAINT FK_Parents FOREIGN KEY (ParentId) REFERENCES Users(id)
 
 CREATE TABLE Babysiters(  --טבלת בייביסיטרים
 BabysiterId INT PRIMARY KEY ,      -- מפתח ראשי
-Age INT,                                   --גיל
+BirthDate date,                                   --גיל
 ExperienceY INT,                           --שנות ניסיון
 License  Bit,                             --רשיון
 CONSTRAINT FK_Babysiters FOREIGN KEY (BabysiterId) REFERENCES Users(id)     
@@ -77,7 +77,7 @@ Go
 insert into Users (Email, [Address], [Password], UserName) VALUES ('b@b.com', 'Hod Hasharon', '123','B Name') 
 insert into Users (Email, [Address], [Password], UserName) VALUES ('p@p.com', 'Raanana', '123','P Name')
 
-insert into Babysiters (BabysiterId, Age, License, ExperienceY) values (1,15,0, 1)
+insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY) values (1,'10-JAN-2009',0, 1)
 insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1)
 --insert into Users values('shira','123','shira@gmail.com', 'hodash','babysiter') 
 

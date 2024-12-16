@@ -11,7 +11,7 @@ public partial class Babysiter
     [Key]
     public int BabysiterId { get; set; }
 
-    public int? Age { get; set; }
+    public DateOnly? BirthDate { get; set; }
 
     public int? ExperienceY { get; set; }
 
