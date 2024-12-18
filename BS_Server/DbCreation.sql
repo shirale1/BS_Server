@@ -14,26 +14,26 @@ Go
   CREATE TABLE Users  
   (
   id INT PRIMARY KEY identity,  --מפתח ראשי(קוד המשתמש                                              
-  UserName NVARCHAR(100),      --שם משתמש   
-  [Password] NVARCHAR(50),    --סיסמה                                                        
-  Email NVARCHAR(100) unique,   --אימייל
-  [Address] NVARCHAR(100),    --כתובת מגורים
+  UserName NVARCHAR(100) not null,      --שם משתמש   
+  [Password] NVARCHAR(50) not null,    --סיסמה                                                        
+  Email NVARCHAR(100) unique not null,   --אימייל
+  [Address] NVARCHAR(100) not null,    --כתובת מגורים
   );
 
 
 CREATE TABLE Parents(    --טבלת הורים
 ParentId INT PRIMARY KEY,      -- מפתח ראשי
-KidsN INT,                              --מספר ילדים
-Pets Bit,                               --בעלי חיים
+KidsN INT not null,                              --מספר ילדים
+Pets Bit not null,                               --בעלי חיים
 CONSTRAINT FK_Parents FOREIGN KEY (ParentId) REFERENCES Users(id)          
 );
 
 
 CREATE TABLE Babysiters(  --טבלת בייביסיטרים
 BabysiterId INT PRIMARY KEY ,      -- מפתח ראשי
-BirthDate date,                                   --גיל
-ExperienceY INT,                           --שנות ניסיון
-License  Bit,                             --רשיון
+BirthDate date not null,                                   --גיל
+ExperienceY INT not null,                           --שנות ניסיון
+License  Bit not null,                             --רשיון
 CONSTRAINT FK_Babysiters FOREIGN KEY (BabysiterId) REFERENCES Users(id)     
 );
 

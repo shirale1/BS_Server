@@ -35,7 +35,7 @@ public partial class BSDbContext : DbContext
     {
         modelBuilder.Entity<Babysiter>(entity =>
         {
-            entity.HasKey(e => e.BabysiterId).HasName("PK__Babysite__E9AD8FB1216DFBE4");
+            entity.HasKey(e => e.BabysiterId).HasName("PK__Babysite__E9AD8FB1ED744CA1");
 
             entity.Property(e => e.BabysiterId).ValueGeneratedNever();
 
@@ -46,7 +46,7 @@ public partial class BSDbContext : DbContext
 
         modelBuilder.Entity<Parent>(entity =>
         {
-            entity.HasKey(e => e.ParentId).HasName("PK__Parents__D339516F5FFFD9E1");
+            entity.HasKey(e => e.ParentId).HasName("PK__Parents__D339516F6166504D");
 
             entity.Property(e => e.ParentId).ValueGeneratedNever();
 
@@ -57,17 +57,17 @@ public partial class BSDbContext : DbContext
 
         modelBuilder.Entity<StatusTable>(entity =>
         {
-            entity.HasKey(e => e.StatusId).HasName("PK__StatusTa__C8EE2063FF1F9FD7");
+            entity.HasKey(e => e.StatusId).HasName("PK__StatusTa__C8EE2063270CF207");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83F912B1D02");
+            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83F2C66B3F7");
         });
 
         modelBuilder.Entity<WaitingLb>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__WaitingL__3214EC07F5AB82B8");
+            entity.HasKey(e => e.Id).HasName("PK__WaitingL__3214EC07AEA6EC91");
 
             entity.HasOne(d => d.Babysiter).WithMany(p => p.WaitingLbs).HasConstraintName("FK__WaitingLB__Babys__34C8D9D1");
 
@@ -78,7 +78,7 @@ public partial class BSDbContext : DbContext
 
         modelBuilder.Entity<WaitingLp>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__WaitingL__3214EC07340A7994");
+            entity.HasKey(e => e.Id).HasName("PK__WaitingL__3214EC07B63E1D4F");
 
             entity.HasOne(d => d.Babysiter).WithMany(p => p.WaitingLps).HasConstraintName("FK__WaitingLP__Babys__300424B4");
 

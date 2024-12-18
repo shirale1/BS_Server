@@ -11,11 +11,11 @@ public partial class Babysiter
     [Key]
     public int BabysiterId { get; set; }
 
-    public DateOnly? BirthDate { get; set; }
+    public DateOnly BirthDate { get; set; }
 
-    public int? ExperienceY { get; set; }
+    public int ExperienceY { get; set; }
 
-    public bool? License { get; set; }
+    public bool License { get; set; }
 
     [ForeignKey("BabysiterId")]
     [InverseProperty("Babysiter")]

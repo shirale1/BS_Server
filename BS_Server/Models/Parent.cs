@@ -11,9 +11,9 @@ public partial class Parent
     [Key]
     public int ParentId { get; set; }
 
-    public int? KidsN { get; set; }
+    public int KidsN { get; set; }
 
-    public bool? Pets { get; set; }
+    public bool Pets { get; set; }
 
     [ForeignKey("ParentId")]
     [InverseProperty("Parent")]

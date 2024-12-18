@@ -23,9 +23,9 @@ namespace BS_Server.DTO
             p.ParentId = this.Id;
             return p;
         }
-        public int? KidsN { get; set; }
+        public int KidsN { get; set; }
 
-        public bool? Pets { get; set; }
+        public bool Pets { get; set; }
 
     }
 }
