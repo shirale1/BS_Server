@@ -35,7 +35,7 @@ public partial class BSDbContext : DbContext
     {
         modelBuilder.Entity<Babysiter>(entity =>
         {
-            entity.HasKey(e => e.BabysiterId).HasName("PK__Babysite__E9AD8FB1ED744CA1");
+            entity.HasKey(e => e.BabysiterId).HasName("PK__Babysite__E9AD8FB169449BE2");
 
             entity.Property(e => e.BabysiterId).ValueGeneratedNever();
 
@@ -46,7 +46,7 @@ public partial class BSDbContext : DbContext
 
         modelBuilder.Entity<Parent>(entity =>
         {
-            entity.HasKey(e => e.ParentId).HasName("PK__Parents__D339516F6166504D");
+            entity.HasKey(e => e.ParentId).HasName("PK__Parents__D339516F73B54DD2");
 
             entity.Property(e => e.ParentId).ValueGeneratedNever();
 
@@ -57,34 +57,34 @@ public partial class BSDbContext : DbContext
 
         modelBuilder.Entity<StatusTable>(entity =>
         {
-            entity.HasKey(e => e.StatusId).HasName("PK__StatusTa__C8EE2063270CF207");
+            entity.HasKey(e => e.StatusId).HasName("PK__StatusTa__C8EE2063A8A32B21");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83F2C66B3F7");
+            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83F938B1386");
         });
 
         modelBuilder.Entity<WaitingLb>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__WaitingL__3214EC07AEA6EC91");
+            entity.HasKey(e => e.Id).HasName("PK__WaitingL__3214EC079FE382D2");
 
-            entity.HasOne(d => d.Babysiter).WithMany(p => p.WaitingLbs).HasConstraintName("FK__WaitingLB__Babys__34C8D9D1");
+            entity.HasOne(d => d.Babysiter).WithMany(p => p.WaitingLbs).HasConstraintName("FK__WaitingLB__Babys__35BCFE0A");
 
-            entity.HasOne(d => d.Parent).WithMany(p => p.WaitingLbs).HasConstraintName("FK__WaitingLB__Paren__33D4B598");
+            entity.HasOne(d => d.Parent).WithMany(p => p.WaitingLbs).HasConstraintName("FK__WaitingLB__Paren__34C8D9D1");
 
-            entity.HasOne(d => d.StatusCodeNavigation).WithMany(p => p.WaitingLbs).HasConstraintName("FK__WaitingLB__Statu__35BCFE0A");
+            entity.HasOne(d => d.StatusCodeNavigation).WithMany(p => p.WaitingLbs).HasConstraintName("FK__WaitingLB__Statu__36B12243");
         });
 
         modelBuilder.Entity<WaitingLp>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__WaitingL__3214EC07B63E1D4F");
+            entity.HasKey(e => e.Id).HasName("PK__WaitingL__3214EC073891658F");
 
-            entity.HasOne(d => d.Babysiter).WithMany(p => p.WaitingLps).HasConstraintName("FK__WaitingLP__Babys__300424B4");
+            entity.HasOne(d => d.Babysiter).WithMany(p => p.WaitingLps).HasConstraintName("FK__WaitingLP__Babys__30F848ED");
 
-            entity.HasOne(d => d.Parent).WithMany(p => p.WaitingLps).HasConstraintName("FK__WaitingLP__Paren__2F10007B");
+            entity.HasOne(d => d.Parent).WithMany(p => p.WaitingLps).HasConstraintName("FK__WaitingLP__Paren__300424B4");
 
-            entity.HasOne(d => d.StatusCodeNavigation).WithMany(p => p.WaitingLps).HasConstraintName("FK__WaitingLP__Statu__30F848ED");
+            entity.HasOne(d => d.StatusCodeNavigation).WithMany(p => p.WaitingLps).HasConstraintName("FK__WaitingLP__Statu__31EC6D26");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -14,6 +14,8 @@ namespace BS_Server.DTO
             this.Address = modeluser.Address;
             this.Email = modeluser.Email;
             this.Id = modeluser.Id;
+            this.IsAdmin=modeluser.IsAdmin;
+            this.Gender=modeluser.Gender;
         }
         public int Id { get; set; }
 
@@ -25,8 +27,11 @@ namespace BS_Server.DTO
 
         public string Email { get; set; }
 
-
         public string Address { get; set; }
+
+        public bool IsAdmin { get; set; }
+
+        public int Gender { get; set; }
 
        public Models.User GetModel()
        {
@@ -36,11 +41,10 @@ namespace BS_Server.DTO
             modeluser.Address = this.Address;
             modeluser.Email = this.Email;
             modeluser.Id = this.Id;
+            modeluser.IsAdmin = this.IsAdmin;
+            modeluser.Gender = this.Gender;
 
             return modeluser;
         }
-
-
-       
     }
 }
