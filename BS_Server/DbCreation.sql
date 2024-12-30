@@ -19,7 +19,7 @@ Go
   Email NVARCHAR(100) unique not null,   --אימייל
   [Address] NVARCHAR(100) not null,    --כתובת מגורים
   [IsAdmin] bit default(0) not null, --האם מנהל
-  [Gender] INT not null     -- מגדר
+  [Gender] NVARCHAR(50) not null     -- מגדר
 
   );
 
@@ -77,8 +77,8 @@ insert into StatusTable (StatusDescription) values ('Decline')
 insert into StatusTable (StatusDescription) values ('Waiting')
 Go
 
-insert into Users (Email, [Address], [Password], UserName, Gender) VALUES ('b@b.com', 'Hod Hasharon', '123','B Name', 1) 
-insert into Users (Email, [Address], [Password], UserName, Gender) VALUES ('p@p.com', 'Raanana', '123','P Name', 1)
+insert into Users (Email, [Address], [Password], UserName, Gender) VALUES ('b@b.com', 'Hod Hasharon', '123','B Name', 'Female') 
+insert into Users (Email, [Address], [Password], UserName, Gender) VALUES ('p@p.com', 'Raanana', '123','P Name', 'Male')
 
 insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY) values (1,'10-JAN-2009',0, 1)
 insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1)
