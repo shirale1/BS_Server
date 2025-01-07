@@ -15,6 +15,8 @@ public partial class Parent
 
     public bool Pets { get; set; }
 
+    public int MaxPayment { get; set; }
+
     [ForeignKey("ParentId")]
     [InverseProperty("Parent")]
     public virtual User ParentNavigation { get; set; } = null!;

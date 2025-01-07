@@ -20,12 +20,15 @@ namespace BS_Server.DTO
             p.ParentNavigation = base.GetModel();
             p.KidsN = this.KidsN;
             p.Pets = this.Pets;
+            p.MaxPayment = this.MaxPayment;
             p.ParentId = this.Id;
             return p;
         }
         public int KidsN { get; set; }
 
         public bool Pets { get; set; }
+
+        public int MaxPayment { get; set; }
 
     }
 }
