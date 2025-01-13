@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using BS_Server.Models;
 using BS_Server.DTO;
+using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 
 namespace BS_Server.Controllers
 {
@@ -29,7 +31,7 @@ namespace BS_Server.Controllers
 
                 //Create model parent class to be written in the DB
                 Models.Parent modelsParent = parentDto.GetModel();
-              
+
                 context.Parents.Add(modelsParent);
                 context.SaveChanges();
 
@@ -53,7 +55,7 @@ namespace BS_Server.Controllers
 
                 //Create model babysiter class to be written in the DB
                 Models.Babysiter modelsBabysiter = babysiterDto.GetModel();
-            
+
                 context.Babysiters.Add(modelsBabysiter);
                 context.SaveChanges();
 
@@ -74,8 +76,8 @@ namespace BS_Server.Controllers
             try
             {
                 HttpContext.Session.Clear(); //Logout any previous login attempt
-                //Get model user class from DB with matching email. 
-                 Models.User? modelsUser = context.GetUser(loginDto.Email, loginDto.Password);
+                                             //Get model user class from DB with matching email. 
+                Models.User? modelsUser = context.GetUser(loginDto.Email, loginDto.Password);
                 if (modelsUser == null)
                 {
                     return Unauthorized();
@@ -90,10 +92,12 @@ namespace BS_Server.Controllers
                         return BadRequest();
                     }
                     BabysiterDTO babySiterDto = new BabysiterDTO(b);
+                    HttpContext.Session.SetString("LoggedInUser", modelsUser.Email);
                     return Ok(babySiterDto);
                 }
 
                 ParentDTO parentDto = new ParentDTO(p);
+                HttpContext.Session.SetString("LoggedInUser", modelsUser.Email);
                 return Ok(parentDto);
             }
             catch (Exception ex)
@@ -101,6 +105,43 @@ namespace BS_Server.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet("GetParents")]
+        public IActionResult GetParents()
+        {
+            #region Checking Login and Permissions
+            //Check if who is logged in
+            string? email = HttpContext.Session.GetString("LoggedInUser");
+            if (string.IsNullOrEmpty(email))
+            {
+                return Unauthorized("User is not logged in");
+            }
+            Models.User? theUser = context.Users.Where(u => u.Email == email).FirstOrDefault();
+            if (theUser == null)
+            {
+                return Unauthorized("User is not logged in");
+            }
+            Models.Babysiter? thebabySiter = context.Babysiters.Where(b => b.BabysiterId == theUser.Id).FirstOrDefault();
+            if (thebabySiter == null)
+            {
+                return Unauthorized("Only Babysiters allowed to run this method!");
+            }
+            #endregion
+
+            List<Parent> parentList = context.Parents.Include(p => p.ParentNavigation).ToList();
+
+            List<DTO.ParentDTO> parentListDTO = new List<DTO.ParentDTO>();
+
+            foreach (Parent p in parentList)
+            {
+                DTO.ParentDTO dto =  new DTO.ParentDTO(p);
+                parentListDTO.Add(dto);
+            }
+            return Ok(parentListDTO);
         
+            
+        }
     }
 }
+        
+    
+
