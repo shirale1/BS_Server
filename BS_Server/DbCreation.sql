@@ -28,7 +28,6 @@ CREATE TABLE Parents(    --טבלת הורים
 ParentId INT PRIMARY KEY,      -- מפתח ראשי
 KidsN INT not null,                              --מספר ילדים
 Pets Bit not null,                               --בעלי חיים
-MaxPayment INT not null,
 CONSTRAINT FK_Parents FOREIGN KEY (ParentId) REFERENCES Users(id)          
 );
 
@@ -82,7 +81,7 @@ insert into Users (Email, [Address], [Password], UserName, Gender) VALUES ('b@b.
 insert into Users (Email, [Address], [Password], UserName, Gender) VALUES ('p@p.com', 'Raanana', '123','P Name', 'Male')
 
 insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY) values (1,'10-JAN-2009',0, 1)
-insert into Parents (ParentId, KidsN, Pets,MaxPayment) values (2, 4, 1,50)
+insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1)
 --insert into Users values('shira','123','shira@gmail.com', 'hodash','babysiter') 
 
 select * from StatusTable
