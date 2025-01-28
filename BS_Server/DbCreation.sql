@@ -14,6 +14,8 @@ Go
   CREATE TABLE Users  
   (
   id INT PRIMARY KEY identity,  --מפתח ראשי(קוד המשתמש                                              
+  FirstName  NVARCHAR(100) not null, --שם פרטי
+  LastName NVARCHAR(100) not null, --שם משפחה
   UserName NVARCHAR(100) not null,      --שם משתמש   
   [Password] NVARCHAR(50) not null,    --סיסמה                                                        
   Email NVARCHAR(100) unique not null,   --אימייל
@@ -37,6 +39,7 @@ BabysiterId INT PRIMARY KEY ,      -- מפתח ראשי
 BirthDate date not null,                                   --גיל
 ExperienceY INT not null,                           --שנות ניסיון
 License  Bit not null,                             --רשיון
+Payment INT not null,             --תשלום שהבייביסיטר לוקחת 
 CONSTRAINT FK_Babysiters FOREIGN KEY (BabysiterId) REFERENCES Users(id)     
 );
 
@@ -77,11 +80,11 @@ insert into StatusTable (StatusDescription) values ('Decline')
 insert into StatusTable (StatusDescription) values ('Waiting')
 Go
 
-insert into Users (Email, [Address], [Password], UserName, Gender) VALUES ('b@b.com', 'Hod Hasharon', '123','B Name', 'Female') 
-insert into Users (Email, [Address], [Password], UserName, Gender) VALUES ('p@p.com', 'Raanana', '123','P Name', 'Male')
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender) VALUES ('b@b.com','shira','levy', 'Hod Hasharon', '123','B Name', 'Female') 
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender) VALUES ('p@p.com','ziv','porat', 'Raanana', '123','P Name', 'Male')
 
-insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY) values (1,'10-JAN-2009',0, 1)
-insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1)
+insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (5,'10-JAN-2009',0, 1,50)
+insert into Parents (ParentId, KidsN, Pets) values (6, 4, 1)
 --insert into Users values('shira','123','shira@gmail.com', 'hodash','babysiter') 
 
 select * from StatusTable

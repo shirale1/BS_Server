@@ -11,6 +11,11 @@ public partial class BSDbContext : DbContext
         return this.Users.Where(u => u.Email == email && u.Password == pas).FirstOrDefault(); 
     }
 
+    public User? GetUser(string email)
+    {
+        return this.Users.Where(u => u.Email == email).FirstOrDefault();
+    }
+
     public Parent? GetParent(int userId)
     {
         return this.Parents.Where(p => p.ParentId == userId)

@@ -6,12 +6,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BS_Server.Models;
 
-[Index("Email", Name = "UQ__Users__A9D105349B269FDC", IsUnique = true)]
+[Index("Email", Name = "UQ__Users__A9D10534928D69EB", IsUnique = true)]
 public partial class User
 {
     [Key]
     [Column("id")]
     public int Id { get; set; }
+
+    [StringLength(100)]
+    public string FirstName { get; set; } = null!;
+
+    [StringLength(100)]
+    public string LastName { get; set; } = null!;
 
     [StringLength(100)]
     public string UserName { get; set; } = null!;

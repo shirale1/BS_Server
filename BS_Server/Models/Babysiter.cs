@@ -17,6 +17,8 @@ public partial class Babysiter
 
     public bool License { get; set; }
 
+    public int Payment { get; set; }
+
     [ForeignKey("BabysiterId")]
     [InverseProperty("Babysiter")]
     public virtual User BabysiterNavigation { get; set; } = null!;

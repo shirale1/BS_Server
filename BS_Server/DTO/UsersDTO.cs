@@ -16,14 +16,18 @@ namespace BS_Server.DTO
             this.Id = modeluser.Id;
             this.IsAdmin=modeluser.IsAdmin;
             this.Gender=modeluser.Gender;
+            this.FirstName=modeluser.FirstName;
+            this.LastName=modeluser.LastName;
         }
         public int Id { get; set; }
 
+        public string FirstName { get; set; } 
+        
+        public string LastName { get; set; }
+
         public string UserName { get; set; }
 
-
         public string Password { get; set; }
-
 
         public string Email { get; set; }
 
@@ -32,6 +36,7 @@ namespace BS_Server.DTO
         public bool IsAdmin { get; set; }
 
         public string Gender { get; set; }
+        public string ProfileImagePath { get; set; }
 
        public Models.User GetModel()
        {
@@ -43,7 +48,8 @@ namespace BS_Server.DTO
             modeluser.Id = this.Id;
             modeluser.IsAdmin = this.IsAdmin;
             modeluser.Gender = this.Gender;
-
+            modeluser.FirstName = this.FirstName;
+            modeluser.LastName = this.LastName;
             return modeluser;
         }
     }
