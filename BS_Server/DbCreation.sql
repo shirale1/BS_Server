@@ -83,8 +83,8 @@ Go
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender) VALUES ('b@b.com','shira','levy', 'Hod Hasharon', '123','B Name', 'Female') 
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender) VALUES ('p@p.com','ziv','porat', 'Raanana', '123','P Name', 'Male')
 
-insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (5,'10-JAN-2009',0, 1,50)
-insert into Parents (ParentId, KidsN, Pets) values (6, 4, 1)
+insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (1,'10-JAN-2009',0, 1,50)
+insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1)
 --insert into Users values('shira','123','shira@gmail.com', 'hodash','babysiter') 
 
 select * from StatusTable
