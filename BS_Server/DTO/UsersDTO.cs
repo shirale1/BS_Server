@@ -36,7 +36,7 @@ namespace BS_Server.DTO
         public bool IsAdmin { get; set; }
 
         public string Gender { get; set; }
-        public string ProfileImagePath { get; set; }
+        public string? ProfileImagePath { get; set; }
 
        public Models.User GetModel()
        {
