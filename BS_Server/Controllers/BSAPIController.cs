@@ -107,6 +107,7 @@ namespace BS_Server.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpGet("GetParents")]
         public IActionResult GetParents()
         {
@@ -139,10 +140,60 @@ namespace BS_Server.Controllers
                 dto.ProfileImagePath = GetProfileImageVirtualPath(dto.Id);
                 parentListDTO.Add(dto);
             }
-            return Ok(parentListDTO);
-        
-            
+            return Ok(parentListDTO);  
         }
+
+        [HttpGet("GetBabysiters")]
+        public IActionResult GetBabysiters()
+        {
+            #region Checking Login and Permissions
+            //Check if who is logged in
+            string? email = HttpContext.Session.GetString("LoggedInUser");
+            if (string.IsNullOrEmpty(email))
+            {
+                return Unauthorized("User is not logged in");
+            }
+            Models.User? theUser = context.Users.Where(u => u.Email == email).FirstOrDefault();
+            if (theUser == null)
+            {
+                return Unauthorized("User is not logged in");
+            }
+            Models.Parent? theparent = context.Parents.Where(p => p.ParentId == theUser.Id).FirstOrDefault();
+            if (theparent == null)
+            {
+                return Unauthorized("Only parents allowed to run this method!");
+            }
+            #endregion
+
+            List<Babysiter> babysiterList = context.Babysiters.Include(b => b.BabysiterNavigation).ToList();
+
+            List<DTO.BabysiterDTO> babysiterListDTO = new List<DTO.BabysiterDTO>();
+
+            foreach (Babysiter b in babysiterList)
+            {
+                DTO.BabysiterDTO dto = new DTO.BabysiterDTO(b);
+                dto.ProfileImagePath = GetProfileImageVirtualPath(dto.Id);
+                babysiterListDTO.Add(dto);
+            }
+            return Ok(babysiterListDTO);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         [HttpPost("UploadProfileImage")]
         public async Task<IActionResult> UploadProfileImageAsync(IFormFile file)
