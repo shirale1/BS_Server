@@ -12,6 +12,7 @@ namespace BS_Server.DTO
         {
             this.BirthDate = modelbabysiter.BirthDate;
             this.ExperienceY=modelbabysiter.ExperienceY;
+            this.Payment = modelbabysiter.Payment;
             this.License=modelbabysiter.License;
         }
        
@@ -22,6 +23,7 @@ namespace BS_Server.DTO
             b.BabysiterNavigation = base.GetModel();
             b.BirthDate=this.BirthDate;
             b.ExperienceY= this.ExperienceY;
+            b.Payment = this.Payment;
             b.License=this.License;
             return b;
         }
@@ -29,8 +31,8 @@ namespace BS_Server.DTO
         public DateOnly BirthDate { get; set; }
 
         public int ExperienceY { get; set; }
-
         public bool License { get; set; }
+        public int Payment { get; set; }
 
   
 
