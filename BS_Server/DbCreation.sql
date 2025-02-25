@@ -21,7 +21,8 @@ Go
   Email NVARCHAR(100) unique not null,   --אימייל
   [Address] NVARCHAR(100) not null,    --כתובת מגורים
   [IsAdmin] bit default(0) not null, --האם מנהל
-  [Gender] NVARCHAR(50) not null     -- מגדר
+  [Gender] NVARCHAR(50) not null,     -- מגדר
+  [Phone] NVARCHAR(50) not null       --מספר טלפון
 
   );
 
@@ -80,10 +81,10 @@ insert into StatusTable (StatusDescription) values ('Decline')
 insert into StatusTable (StatusDescription) values ('Waiting')
 Go
 
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender) VALUES ('b@b.com','shira','levy', 'Hod Hasharon', '123','B Name', 'Female') 
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender) VALUES ('p@p.com','ziv','porat', 'Raanana', '123','P Name', 'Male')
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender) VALUES ('s@.com','shiri','kehat', 'USA', '123','S Name', 'Female') 
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender) VALUES ('shirale200@gmail.com','ori','geva', 'france', '123','O Name', 'Male')
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('b@b.com','shira','levy', 'Hod Hasharon', '123','B Name', 'Female','0505805203') 
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('p@p.com','ziv','porat', 'Raanana', '123','P Name', 'Male','0506519451')
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('s@.com','shiri','kehat', 'USA', '123','S Name', 'Female','0541234567') 
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('shirale200@gmail.com','ori','geva', 'france', '123','O Name', 'Male','0501234567')
 
 insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (1,'10-JAN-2009',0, 1,50)
 insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1)
