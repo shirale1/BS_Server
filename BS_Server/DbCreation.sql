@@ -83,18 +83,19 @@ Go
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender) VALUES ('b@b.com','shira','levy', 'Hod Hasharon', '123','B Name', 'Female') 
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender) VALUES ('p@p.com','ziv','porat', 'Raanana', '123','P Name', 'Male')
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender) VALUES ('s@.com','shiri','kehat', 'USA', '123','S Name', 'Female') 
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender) VALUES ('ori@.com','ori','geva', 'france', '123','O Name', 'Male')
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender) VALUES ('shirale200@gmail.com','ori','geva', 'france', '123','O Name', 'Male')
 
 insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (1,'10-JAN-2009',0, 1,50)
-insert into Parents (ParentId, KidsN, Pets) values (1, 4, 1)
-insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (2,'15-FEB-2007',1, 1,75)
-insert into Parents (ParentId, KidsN, Pets) values (2, 2, 0)
+insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1)
+insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (3,'15-FEB-2007',1, 1,75)
+insert into Parents (ParentId, KidsN, Pets) values (4, 2, 0)
 
 
 select * from StatusTable
 Select * From Babysiters
 Select * From Users
 Select * From Parents
+
 
 --EF Code
 /*
