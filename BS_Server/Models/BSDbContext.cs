@@ -19,13 +19,11 @@ public partial class BSDbContext : DbContext
 
     public virtual DbSet<Parent> Parents { get; set; }
 
-    public virtual DbSet<StatusTable> StatusTables { get; set; }
+    public virtual DbSet<Rating> Ratings { get; set; }
+
+    public virtual DbSet<Recommendation> Recommendations { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
-
-    public virtual DbSet<WaitingLb> WaitingLbs { get; set; }
-
-    public virtual DbSet<WaitingLp> WaitingLps { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -35,7 +33,7 @@ public partial class BSDbContext : DbContext
     {
         modelBuilder.Entity<Babysiter>(entity =>
         {
-            entity.HasKey(e => e.BabysiterId).HasName("PK__Babysite__E9AD8FB14D16AFBA");
+            entity.HasKey(e => e.BabysiterId).HasName("PK__Babysite__E9AD8FB1DA2651B1");
 
             entity.Property(e => e.BabysiterId).ValueGeneratedNever();
 
@@ -46,7 +44,7 @@ public partial class BSDbContext : DbContext
 
         modelBuilder.Entity<Parent>(entity =>
         {
-            entity.HasKey(e => e.ParentId).HasName("PK__Parents__D339516FDACF0106");
+            entity.HasKey(e => e.ParentId).HasName("PK__Parents__D339516F7BDC2B8D");
 
             entity.Property(e => e.ParentId).ValueGeneratedNever();
 
@@ -55,36 +53,25 @@ public partial class BSDbContext : DbContext
                 .HasConstraintName("FK_Parents");
         });
 
-        modelBuilder.Entity<StatusTable>(entity =>
+        modelBuilder.Entity<Rating>(entity =>
         {
-            entity.HasKey(e => e.StatusId).HasName("PK__StatusTa__C8EE2063D1078465");
+            entity.HasKey(e => e.RatingId).HasName("PK__Rating__FCCDF87C701FB6E6");
+
+            entity.Property(e => e.RatingValue).HasDefaultValue(0);
+
+            entity.HasOne(d => d.User).WithMany(p => p.Ratings).HasConstraintName("FK__Rating__UserId__2E1BDC42");
+        });
+
+        modelBuilder.Entity<Recommendation>(entity =>
+        {
+            entity.HasKey(e => e.RecommendationId).HasName("PK__Recommen__AA15BEE438ED99FE");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Recommendations).HasConstraintName("FK__Recommend__UserI__31EC6D26");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83FBCA59C7A");
-        });
-
-        modelBuilder.Entity<WaitingLb>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__WaitingL__3214EC07AE0DE614");
-
-            entity.HasOne(d => d.Babysiter).WithMany(p => p.WaitingLbs).HasConstraintName("FK__WaitingLB__Babys__35BCFE0A");
-
-            entity.HasOne(d => d.Parent).WithMany(p => p.WaitingLbs).HasConstraintName("FK__WaitingLB__Paren__34C8D9D1");
-
-            entity.HasOne(d => d.StatusCodeNavigation).WithMany(p => p.WaitingLbs).HasConstraintName("FK__WaitingLB__Statu__36B12243");
-        });
-
-        modelBuilder.Entity<WaitingLp>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__WaitingL__3214EC07BCF718EA");
-
-            entity.HasOne(d => d.Babysiter).WithMany(p => p.WaitingLps).HasConstraintName("FK__WaitingLP__Babys__30F848ED");
-
-            entity.HasOne(d => d.Parent).WithMany(p => p.WaitingLps).HasConstraintName("FK__WaitingLP__Paren__300424B4");
-
-            entity.HasOne(d => d.StatusCodeNavigation).WithMany(p => p.WaitingLps).HasConstraintName("FK__WaitingLP__Statu__31EC6D26");
+            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83F3A87E8C7");
         });
 
         OnModelCreatingPartial(modelBuilder);

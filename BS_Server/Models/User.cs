@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BS_Server.Models;
 
-[Index("Email", Name = "UQ__Users__A9D105341D2DAA33", IsUnique = true)]
+[Index("Email", Name = "UQ__Users__A9D1053489B7265C", IsUnique = true)]
 public partial class User
 {
     [Key]
@@ -44,4 +44,10 @@ public partial class User
 
     [InverseProperty("ParentNavigation")]
     public virtual Parent? Parent { get; set; }
+
+    [InverseProperty("User")]
+    public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
+
+    [InverseProperty("User")]
+    public virtual ICollection<Recommendation> Recommendations { get; set; } = new List<Recommendation>();
 }

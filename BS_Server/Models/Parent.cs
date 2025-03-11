@@ -18,10 +18,4 @@ public partial class Parent
     [ForeignKey("ParentId")]
     [InverseProperty("Parent")]
     public virtual User ParentNavigation { get; set; } = null!;
-
-    [InverseProperty("Parent")]
-    public virtual ICollection<WaitingLb> WaitingLbs { get; set; } = new List<WaitingLb>();
-
-    [InverseProperty("Parent")]
-    public virtual ICollection<WaitingLp> WaitingLps { get; set; } = new List<WaitingLp>();
 }

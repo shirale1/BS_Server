@@ -130,7 +130,10 @@ namespace BS_Server.Controllers
             }
             #endregion
 
-            List<Parent> parentList = context.Parents.Include(p => p.ParentNavigation).ToList();
+            List<Parent> parentList = context.Parents.Include(p => p.ParentNavigation)
+            .ThenInclude(u => u.Ratings)
+            .Include(p => p.ParentNavigation)
+            .ThenInclude(u => u.Recommendations).ToList();
 
             List<DTO.ParentDTO> parentListDTO = new List<DTO.ParentDTO>();
 
@@ -165,7 +168,10 @@ namespace BS_Server.Controllers
             }
             #endregion
 
-            List<Babysiter> babysiterList = context.Babysiters.Include(b => b.BabysiterNavigation).ToList();
+            List<Babysiter> babysiterList = context.Babysiters.Include(p => p.BabysiterNavigation)
+            .ThenInclude(u => u.Ratings)
+            .Include(p => p.BabysiterNavigation)
+            .ThenInclude(u => u.Recommendations).ToList();
 
             List<DTO.BabysiterDTO> babysiterListDTO = new List<DTO.BabysiterDTO>();
 
@@ -178,22 +184,73 @@ namespace BS_Server.Controllers
             return Ok(babysiterListDTO);
         }
 
+        [HttpPost("AddRating")]
+        public IActionResult Addrating([FromBody] DTO.RatingDTO ratingDto)
+        {
+            try
+            {
+                #region Checking Login and Permissions
+                //Check if who is logged in
+                string? email = HttpContext.Session.GetString("LoggedInUser");
+                if (string.IsNullOrEmpty(email))
+                {
+                    return Unauthorized("User is not logged in");
+                }
+                Models.User? theUser = context.Users.Where(u => u.Email == email).FirstOrDefault();
+                if (theUser == null)
+                {
+                    return Unauthorized("User is not logged in");
+                }
+                
+                #endregion
+                //Create model dto class to be written in the DB
+                Models.Rating modelsRating = ratingDto.GetModel();
 
+                context.Ratings.Add(modelsRating);
+                context.SaveChanges();
 
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
+        }
 
+        [HttpPost("AddRecommendations")]
+        public IActionResult AddRecommendations([FromBody] DTO.RecommendationDTO recommendationsDto)
+        {
+            try
+            {
+                #region Checking Login and Permissions
+                //Check if who is logged in
+                string? email = HttpContext.Session.GetString("LoggedInUser");
+                if (string.IsNullOrEmpty(email))
+                {
+                    return Unauthorized("User is not logged in");
+                }
+                Models.User? theUser = context.Users.Where(u => u.Email == email).FirstOrDefault();
+                if (theUser == null)
+                {
+                    return Unauthorized("User is not logged in");
+                }
 
+                #endregion
+                //Create model dto class to be written in the DB
+                Models.Recommendation modelsRecommendation = recommendationsDto.GetModel();
 
+                context.Recommendations.Add(modelsRecommendation);
+                context.SaveChanges();
 
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
-
-
-
-
-
-
-
-
+        }
 
         [HttpPost("UploadProfileImage")]
         public async Task<IActionResult> UploadProfileImageAsync(IFormFile file)

@@ -19,6 +19,22 @@ namespace BS_Server.DTO
             this.FirstName=modeluser.FirstName;
             this.LastName=modeluser.LastName;
             this.Phone=modeluser.Phone;
+            this.Ratings = new List<RatingDTO>();
+            if (modeluser.Ratings != null)
+            {
+                foreach(Rating r in  modeluser.Ratings)
+                {
+                    this.Ratings.Add(new RatingDTO(r));
+                }
+            }
+            this.Recommendations = new List<RecommendationDTO>();
+            if (modeluser.Recommendations != null)
+            {
+                foreach (Recommendation r in modeluser.Recommendations)
+                {
+                    this.Recommendations.Add(new RecommendationDTO(r));
+                }
+            }
         }
         public int Id { get; set; }
 
@@ -40,6 +56,10 @@ namespace BS_Server.DTO
         public string? ProfileImagePath { get; set; }
         public string Phone {  get; set; }
 
+        public List<RecommendationDTO> Recommendations { get; set; }
+        public List<RatingDTO> Ratings { get; set; }
+
+
        public Models.User GetModel()
        {
             Models.User modeluser = new Models.User();
@@ -53,6 +73,7 @@ namespace BS_Server.DTO
             modeluser.FirstName = this.FirstName;
             modeluser.LastName = this.LastName;
             modeluser.Phone = this.Phone;
+
             return modeluser;
         }
     }

@@ -22,10 +22,4 @@ public partial class Babysiter
     [ForeignKey("BabysiterId")]
     [InverseProperty("Babysiter")]
     public virtual User BabysiterNavigation { get; set; } = null!;
-
-    [InverseProperty("Babysiter")]
-    public virtual ICollection<WaitingLb> WaitingLbs { get; set; } = new List<WaitingLb>();
-
-    [InverseProperty("Babysiter")]
-    public virtual ICollection<WaitingLp> WaitingLps { get; set; } = new List<WaitingLp>();
 }

@@ -44,25 +44,16 @@ Payment INT not null,             --תשלום שהבייביסיטר לוקחת
 CONSTRAINT FK_Babysiters FOREIGN KEY (BabysiterId) REFERENCES Users(id)     
 );
 
+  Create Table Rating (
+  RatingId int primary key identity,
+  UserId int foreign key(UserId) references Users(id),
+  RatingValue int default(0));
 
-  CREATE TABLE StatusTable(               --טבלת סטטוס 
-  StatusId INT PRIMARY KEY Identity, --קוד סטטוס 
-  StatusDescription NVARCHAR(250),        --(תיאור לכל קוד סטטוס(אושר, ממתין וכו
-  );
-  
-  CREATE TABLE WaitingLP(  --טבלת רשימת המתנה, בקשות שהורים שלחו לבייביסיטרים
-  Id INT PRIMARY KEY Identity,                                --מספר בקשה        
-  ParentId int FOREIGN KEY(ParentId) REFERENCES Parents(ParentId),         --שם ההורה ששלח את הבקשה
-  BabysiterId int FOREIGN KEY(BabysiterId) REFERENCES Babysiters(BabysiterId), --שם הבייביסיטר אליו נשלחה הבקשה
-  StatusCode int FOREIGN KEY(StatusCode)REFERENCES StatusTable(StatusId) ,     --(סטטוס הבקשה (ממתין/אושר/נדחה 
-  );
-
-  CREATE TABLE WaitingLB(  --טבלת רשימת המתנה, בקשות שבייביסיטרים שלחו להורים
-  Id INT PRIMARY KEY Identity,                                                 --מספר בקשה        
-  ParentId int FOREIGN KEY(ParentId) REFERENCES Parents(ParentId),            --שם ההורה אליו נשלחה הבקשה
-  BabysiterId int FOREIGN KEY(BabysiterId) REFERENCES Babysiters(BabysiterId),--שם הבייביסיטר ששלח את הבקשה
-  StatusCode int FOREIGN KEY(StatusCode)REFERENCES StatusTable(StatusId) ,    --(סטטוס הבקשה (ממתין/אושר/נדחה 
-  );
+  Create Table Recommendation (
+  RecommendationId int primary key identity,
+  UserId int foreign key(UserId) references Users(id),
+  RecommendationText nvarchar(500));
+  Go
 
    --Create a login for the admin user
 CREATE LOGIN [Login] WITH PASSWORD = 'shira123';
@@ -76,10 +67,7 @@ Go
 ALTER ROLE db_owner ADD MEMBER [AdminUser];
 Go
 
-insert into StatusTable (StatusDescription) values ('Approve')
-insert into StatusTable (StatusDescription) values ('Decline')
-insert into StatusTable (StatusDescription) values ('Waiting')
-Go
+
 
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('b@b.com','shira','levy', 'Hod Hasharon', '123','B Name', 'Female','0505805203') 
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('p@p.com','ziv','porat', 'Raanana', '123','P Name', 'Male','0506519451')
@@ -92,12 +80,26 @@ insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) va
 insert into Parents (ParentId, KidsN, Pets) values (4, 2, 0)
 
 
-select * from StatusTable
+
 Select * From Babysiters
 Select * From Users
 Select * From Parents
+Select * From Rating
 
+insert into Rating values(1, 4)
+insert into Rating values(1, 2)
+insert into Rating values(2, 2)
+insert into Rating values(3, 2)
+insert into Rating values(4, 2)
+insert into Rating values(2, 2)
 
+insert into Recommendation values(1, 'She was great!')
+insert into Recommendation values(2, 'She was great2!')
+insert into Recommendation values(3, 'She was great3!')
+insert into Recommendation values(4, 'She was great4!')
+insert into Recommendation values(1, 'She was great5!')
+
+select * from Rating
 --EF Code
 /*
 scaffold-DbContext "Server = (localdb)\MSSQLLocalDB;Initial Catalog=BS_DB;User ID=Login;Password=shira123;" Microsoft.EntityFrameworkCore.SqlServer -OutPutDir Models -Context BSDbContext -DataAnnotations -force
