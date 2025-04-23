@@ -55,6 +55,14 @@ CONSTRAINT FK_Babysiters FOREIGN KEY (BabysiterId) REFERENCES Users(id)
   RecommendationText nvarchar(500));
   Go
 
+  Create Table Tips (
+  TipId int primary key identity,
+  UserId int foreign key(UserId) references Users(id),
+  TipText nvarchar(500),
+  StatusId int --Approved(1), Declined(2), Pending(3)
+  );
+  Go
+
    --Create a login for the admin user
 CREATE LOGIN [Login] WITH PASSWORD = 'shira123';
 Go

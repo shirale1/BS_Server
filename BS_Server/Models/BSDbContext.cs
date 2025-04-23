@@ -23,6 +23,8 @@ public partial class BSDbContext : DbContext
 
     public virtual DbSet<Recommendation> Recommendations { get; set; }
 
+    public virtual DbSet<Tip> Tips { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -33,7 +35,7 @@ public partial class BSDbContext : DbContext
     {
         modelBuilder.Entity<Babysiter>(entity =>
         {
-            entity.HasKey(e => e.BabysiterId).HasName("PK__Babysite__E9AD8FB1DA2651B1");
+            entity.HasKey(e => e.BabysiterId).HasName("PK__Babysite__E9AD8FB1A9492ED4");
 
             entity.Property(e => e.BabysiterId).ValueGeneratedNever();
 
@@ -44,7 +46,7 @@ public partial class BSDbContext : DbContext
 
         modelBuilder.Entity<Parent>(entity =>
         {
-            entity.HasKey(e => e.ParentId).HasName("PK__Parents__D339516F7BDC2B8D");
+            entity.HasKey(e => e.ParentId).HasName("PK__Parents__D339516F7B3FF3DA");
 
             entity.Property(e => e.ParentId).ValueGeneratedNever();
 
@@ -55,7 +57,7 @@ public partial class BSDbContext : DbContext
 
         modelBuilder.Entity<Rating>(entity =>
         {
-            entity.HasKey(e => e.RatingId).HasName("PK__Rating__FCCDF87C701FB6E6");
+            entity.HasKey(e => e.RatingId).HasName("PK__Rating__FCCDF87CAAB88A33");
 
             entity.Property(e => e.RatingValue).HasDefaultValue(0);
 
@@ -64,14 +66,21 @@ public partial class BSDbContext : DbContext
 
         modelBuilder.Entity<Recommendation>(entity =>
         {
-            entity.HasKey(e => e.RecommendationId).HasName("PK__Recommen__AA15BEE438ED99FE");
+            entity.HasKey(e => e.RecommendationId).HasName("PK__Recommen__AA15BEE43EF38ED1");
 
             entity.HasOne(d => d.User).WithMany(p => p.Recommendations).HasConstraintName("FK__Recommend__UserI__31EC6D26");
         });
 
+        modelBuilder.Entity<Tip>(entity =>
+        {
+            entity.HasKey(e => e.TipId).HasName("PK__Tips__2DB1A1C85169FAE3");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Tips).HasConstraintName("FK__Tips__UserId__34C8D9D1");
+        });
+
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83F3A87E8C7");
+            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83F4DCBB3FF");
         });
 
         OnModelCreatingPartial(modelBuilder);

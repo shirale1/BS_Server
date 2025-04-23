@@ -371,6 +371,15 @@ namespace BS_Server.Controllers
             return virtualPath;
         }
 
+        #region Tips
+        //To DO:
+        //0. Create Tip class in the DTO
+        //1. Method that return ALL approved tips
+        //2. Method that return ALL pending tips
+        //3. Method that gets a tip and update it into the database.
+        //4. Method that gets a tip and add it into the database.
+        #endregion
+
     }
 }
         
