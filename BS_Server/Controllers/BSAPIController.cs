@@ -378,7 +378,16 @@ namespace BS_Server.Controllers
         //2. Method that return ALL pending tips
         //3. Method that gets a tip and update it into the database.
         //4. Method that gets a tip and add it into the database.
+
+
+        public 
+
+
+
         #endregion
+
+
+
 
     }
 }
