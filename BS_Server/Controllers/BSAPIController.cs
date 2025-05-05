@@ -439,8 +439,9 @@ namespace BS_Server.Controllers
             return Ok(tipDTO);
         }
 
+
         [HttpPost("AddTip")]
-        public IActionResult AddTip([FromBody] DTO.RecommendationDTO recommendationsDto)
+        public IActionResult AddTip([FromBody] DTO.TipDTO tipsDto)
         {
             try
             {
@@ -459,11 +460,10 @@ namespace BS_Server.Controllers
 
                 #endregion
                 //Create model dto class to be written in the DB
-                Models.Recommendation modelsRecommendation = recommendationsDto.GetModel();
+                Models.Tip modelsTip = tipsDto.GetModel();
 
-                context.Recommendations.Add(modelsRecommendation);
+                context.Tips.Add(modelsTip);
                 context.SaveChanges();
-
                 return Ok();
             }
             catch (Exception ex)
@@ -472,6 +472,10 @@ namespace BS_Server.Controllers
             }
 
         }
+
+        [HttpPost("UpdateTip")]
+        
+
 
     }
 }
