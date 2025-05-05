@@ -93,7 +93,7 @@ namespace BS_Server.Controllers
                     }
                     BabysiterDTO babySiterDto = new BabysiterDTO(b);
                     HttpContext.Session.SetString("LoggedInUser", modelsUser.Email);
-                    babySiterDto.ProfileImagePath= GetProfileImageVirtualPath(babySiterDto.Id);
+                    babySiterDto.ProfileImagePath = GetProfileImageVirtualPath(babySiterDto.Id);
                     return Ok(babySiterDto);
                 }
 
@@ -139,11 +139,11 @@ namespace BS_Server.Controllers
 
             foreach (Parent p in parentList)
             {
-                DTO.ParentDTO dto =  new DTO.ParentDTO(p);
+                DTO.ParentDTO dto = new DTO.ParentDTO(p);
                 dto.ProfileImagePath = GetProfileImageVirtualPath(dto.Id);
                 parentListDTO.Add(dto);
             }
-            return Ok(parentListDTO);  
+            return Ok(parentListDTO);
         }
 
         [HttpGet("GetBabysiters")]
@@ -201,7 +201,7 @@ namespace BS_Server.Controllers
                 {
                     return Unauthorized("User is not logged in");
                 }
-                
+
                 #endregion
                 //Create model dto class to be written in the DB
                 Models.Rating modelsRating = ratingDto.GetModel();
@@ -379,18 +379,109 @@ namespace BS_Server.Controllers
         //3. Method that gets a tip and update it into the database.
         //4. Method that gets a tip and add it into the database.
 
+   
 
-        public 
+        [HttpGet("GetApprovedTips")]
+        public IActionResult GetApprovedTips()
+        {
+            #region Checking Login and Permissions
+            //Check if who is logged in
+            string? email = HttpContext.Session.GetString("LoggedInUser");
+            if (string.IsNullOrEmpty(email))
+            {
+                return Unauthorized("User is not logged in");
+            }
+            Models.User? theUser = context.Users.Where(u => u.Email == email).FirstOrDefault();
+            if (theUser == null)
+            {
+                return Unauthorized("User is not logged in");
+            }
 
+            #endregion
+            List<Tip> tips = context.Tips.Where(t => t.StatusId == 1).ToList();
 
+            List<DTO.TipDTO> tipDTO = new List<DTO.TipDTO>();
 
-        #endregion
+            foreach (Tip t in tips)
+            {
+                DTO.TipDTO dto = new DTO.TipDTO(t);
+                tipDTO.Add(dto);
+            }
+            return Ok(tipDTO);
+        }
 
+        [HttpGet("GetPendingTips")]
+        public IActionResult GetPendingTips()
+        {
+            #region Checking Login and Permissions
+            //Check if who is logged in
+            string? email = HttpContext.Session.GetString("LoggedInUser");
+            if (string.IsNullOrEmpty(email))
+            {
+                return Unauthorized("User is not logged in");
+            }
+            Models.User? theUser = context.Users.Where(u => u.Email == email).FirstOrDefault();
+            if (theUser == null)
+            {
+                return Unauthorized("User is not logged in");
+            }
 
+            #endregion
+            List<Tip> tips = context.Tips.Where(t => t.StatusId == 3).ToList();
 
+            List<DTO.TipDTO> tipDTO = new List<DTO.TipDTO>();
+
+            foreach (Tip t in tips)
+            {
+                DTO.TipDTO dto = new DTO.TipDTO(t);
+                tipDTO.Add(dto);
+            }
+            return Ok(tipDTO);
+        }
+
+        [HttpPost("AddTip")]
+        public IActionResult AddTip([FromBody] DTO.RecommendationDTO recommendationsDto)
+        {
+            try
+            {
+                #region Checking Login and Permissions
+                //Check if who is logged in
+                string? email = HttpContext.Session.GetString("LoggedInUser");
+                if (string.IsNullOrEmpty(email))
+                {
+                    return Unauthorized("User is not logged in");
+                }
+                Models.User? theUser = context.Users.Where(u => u.Email == email).FirstOrDefault();
+                if (theUser == null)
+                {
+                    return Unauthorized("User is not logged in");
+                }
+
+                #endregion
+                //Create model dto class to be written in the DB
+                Models.Recommendation modelsRecommendation = recommendationsDto.GetModel();
+
+                context.Recommendations.Add(modelsRecommendation);
+                context.SaveChanges();
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
 
     }
 }
+
+
+
+
+    
+
+
         
     
 
