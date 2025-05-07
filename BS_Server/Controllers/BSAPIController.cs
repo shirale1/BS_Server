@@ -440,8 +440,8 @@ namespace BS_Server.Controllers
         }
 
 
-        [HttpPost("AddTip")]
-        public IActionResult AddTip([FromBody] DTO.TipDTO tipsDto)
+        [HttpPost("AddUpdateTip")]
+        public IActionResult AddUpdateTip([FromBody] DTO.TipDTO tipsDto)
         {
             try
             {
@@ -462,7 +462,7 @@ namespace BS_Server.Controllers
                 //Create model dto class to be written in the DB
                 Models.Tip modelsTip = tipsDto.GetModel();
 
-                context.Tips.Add(modelsTip);
+                context.Tips.Update(modelsTip); //Add or Update the tip based on its ID (0 - Add. other - Update)
                 context.SaveChanges();
                 return Ok();
             }
@@ -473,7 +473,7 @@ namespace BS_Server.Controllers
 
         }
 
-        [HttpPost("UpdateTip")]
+        //[HttpPost("UpdateTip")]
         
 
 
@@ -482,10 +482,4 @@ namespace BS_Server.Controllers
 
 
 
-
-    
-
-
-        
-    
-
+#endregion

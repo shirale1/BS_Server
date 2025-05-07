@@ -108,6 +108,7 @@ insert into Recommendation values(4, 'She was great4!')
 insert into Recommendation values(1, 'She was great5!')
 
 select * from Rating
+select * from Recommendation
 --EF Code
 /*
 scaffold-DbContext "Server = (localdb)\MSSQLLocalDB;Initial Catalog=BS_DB;User ID=Login;Password=shira123;" Microsoft.EntityFrameworkCore.SqlServer -OutPutDir Models -Context BSDbContext -DataAnnotations -force
