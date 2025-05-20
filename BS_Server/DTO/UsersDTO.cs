@@ -73,7 +73,6 @@ namespace BS_Server.DTO
             modeluser.FirstName = this.FirstName;
             modeluser.LastName = this.LastName;
             modeluser.Phone = this.Phone;
-
             return modeluser;
         }
     }

@@ -25,6 +25,7 @@ namespace BS_Server.DTO
             b.ExperienceY= this.ExperienceY;
             b.Payment = this.Payment;
             b.License=this.License;
+            b.BabysiterId = this.Id;
             return b;
         }
 

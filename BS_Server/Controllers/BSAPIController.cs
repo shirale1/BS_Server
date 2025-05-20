@@ -27,12 +27,13 @@ namespace BS_Server.Controllers
         {
             try
             {
-                HttpContext.Session.Clear(); //Logout any previous login attempt
+                if (parentDto.Id == 0) 
+                    HttpContext.Session.Clear(); //Logout any previous login attempt
 
                 //Create model parent class to be written in the DB
                 Models.Parent modelsParent = parentDto.GetModel();
 
-                context.Parents.Add(modelsParent);
+                context.Parents.Update(modelsParent);
                 context.SaveChanges();
 
                 //User was added!
@@ -51,12 +52,19 @@ namespace BS_Server.Controllers
         {
             try
             {
-                HttpContext.Session.Clear(); //Logout any previous login attempt
+                //check if we are in register or update!
+                if (babysiterDto.Id == 0) 
+                {
+                    HttpContext.Session.Clear(); //Logout any previous login attempt
+                }
+                
 
                 //Create model babysiter class to be written in the DB
                 Models.Babysiter modelsBabysiter = babysiterDto.GetModel();
 
-                context.Babysiters.Add(modelsBabysiter);
+                context.Babysiters.Update(modelsBabysiter);
+                
+
                 context.SaveChanges();
 
                 //User was added!
