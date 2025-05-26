@@ -92,7 +92,11 @@ namespace BS_Server.Controllers
                 }
 
                 if (modelsUser.IsAdmin)
+                {
+                    HttpContext.Session.SetString("LoggedInUser", modelsUser.Email);
                     return Ok(new UsersDTO(modelsUser));
+                }
+                    
 
                 Parent? p = context.GetParent(modelsUser.Id);
                 if (p == null)

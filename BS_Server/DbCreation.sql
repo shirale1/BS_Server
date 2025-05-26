@@ -78,9 +78,10 @@ Go
 
 
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('b@b.com','shira','levy', 'Hod Hasharon', '123','B Name', 'Female','0505805203') 
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('p@p.com','ziv','porat', 'Raanana', '123','P Name', 'Male','0506519451')
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('s@.com','shiri','kehat', 'USA', '123','S Name', 'Female','0541234567') 
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('shirale200@gmail.com','ori','geva', 'france', '123','O Name', 'Male','0501234567')
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('p@p.com','ziv','porat', 'Hod Hasharon', '123','P Name', 'Male','0506519451')
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('s@.com','shiri','kehat', 'Hod Hasharon', '123','S Name', 'Female','0541234567') 
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('parent@.com','amit','geva', 'Hod Hasharon', '1234','a Name', 'Male','0501234567')
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('shirale200@gmail.com','ori','geva', 'Hod Hasharon', '123','O Name', 'Male','0501234567')
 insert into Users (Email,FirstName,LastName, [Address], IsAdmin, [Password], UserName, Gender, Phone) VALUES 
 ('admin@gamil.com','admin','adminlastname', 'france','1', '12345','admin1', 'Female','0505805205')
 
@@ -89,8 +90,7 @@ insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) va
 insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1)
 insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (3,'15-FEB-2007',1, 1,75)
 insert into Parents (ParentId, KidsN, Pets) values (4, 2, 0)
-
-
+--insert into Parents (ParentId, KidsN, Pets) values (6, 1, 
 
 Select * From Babysiters
 Select * From Users
@@ -112,6 +112,7 @@ insert into Recommendation values(1, 'She was great5!')
 
 select * from Rating
 select * from Recommendation
+select * from Tips
 --EF Code
 /*
 scaffold-DbContext "Server = (localdb)\MSSQLLocalDB;Initial Catalog=BS_DB;User ID=Login;Password=shira123;" Microsoft.EntityFrameworkCore.SqlServer -OutPutDir Models -Context BSDbContext -DataAnnotations -force
