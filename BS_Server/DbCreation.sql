@@ -81,7 +81,8 @@ insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Ge
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('p@p.com','ziv','porat', 'Raanana', '123','P Name', 'Male','0506519451')
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('s@.com','shiri','kehat', 'USA', '123','S Name', 'Female','0541234567') 
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('shirale200@gmail.com','ori','geva', 'france', '123','O Name', 'Male','0501234567')
-insert into Users (Email,FirstName,LastName, [Address], IsAdmin, UserName, Gender, Phone) VALUES ('admin@gamil.com','admin','adminlastname', 'france','1', '12345','admin1', 'Female','0505805205')
+insert into Users (Email,FirstName,LastName, [Address], IsAdmin, [Password], UserName, Gender, Phone) VALUES 
+('admin@gamil.com','admin','adminlastname', 'france','1', '12345','admin1', 'Female','0505805205')
 
 
 insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (1,'10-JAN-2009',0, 1,50)

@@ -91,6 +91,9 @@ namespace BS_Server.Controllers
                     return Unauthorized();
                 }
 
+                if (modelsUser.IsAdmin)
+                    return Ok(new UsersDTO(modelsUser));
+
                 Parent? p = context.GetParent(modelsUser.Id);
                 if (p == null)
                 {
