@@ -83,19 +83,20 @@ insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Ge
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('parent@.com','amit','geva', 'Hod Hasharon', '1234','a Name', 'Male','0501234567')
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('shirale200@gmail.com','ori','geva', 'Hod Hasharon', '123','O Name', 'Male','0501234567')
 insert into Users (Email,FirstName,LastName, [Address], IsAdmin, [Password], UserName, Gender, Phone) VALUES 
-('admin@gamil.com','admin','adminlastname', 'france','1', '12345','admin1', 'Female','0505805205')
+('admin@gmail.com','admin','adminlastname', 'france','1', '12345','admin1', 'Female','0505805205')
 
 
 insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (1,'10-JAN-2009',0, 1,50)
 insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1)
 insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (3,'15-FEB-2007',1, 1,75)
 insert into Parents (ParentId, KidsN, Pets) values (4, 2, 0)
---insert into Parents (ParentId, KidsN, Pets) values (6, 1, 
+insert into Parents (ParentId, KidsN, Pets) values (14, 1, 0)
 
 Select * From Babysiters
 Select * From Users
 Select * From Parents
 Select * From Rating
+Select * From Tips
 
 insert into Rating values(1, 4)
 insert into Rating values(1, 2)
