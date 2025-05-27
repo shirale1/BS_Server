@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="BS_Server.Models.Babysiter">
-    <Position X="8.25" Y="1.75" Width="1.5" />
+    <Position X="9.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAAAIACAAQAAAAAAAAAAAAAAAAACAE=</HashCode>
       <FileName>Models\Babysiter.cs</FileName>
@@ -11,14 +11,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="BS_Server.Models.BSDbContext">
-    <Position X="2.75" Y="1.75" Width="1.5" />
+    <Position X="1.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAACQAQAAAAAgAAAAEAEAAAAAAAEAAAQAQIAQA=</HashCode>
       <FileName>Models\BSDbContext.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BS_Server.Models.Parent">
-    <Position X="4.75" Y="1.75" Width="1.5" />
+    <Position X="3.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAAGAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Models\Parent.cs</FileName>
@@ -28,28 +28,28 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="BS_Server.Models.Rating">
-    <Position X="11.25" Y="4" Width="1.5" />
+    <Position X="11.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Models\Rating.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BS_Server.Models.Recommendation">
-    <Position X="9.25" Y="4.5" Width="1.5" />
+    <Position X="9.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAAAAAAAAAAAAgAAAAAAAAIABAAAAAAAAA=</HashCode>
       <FileName>Models\Recommendation.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BS_Server.Models.Tip">
-    <Position X="4.5" Y="4" Width="1.5" />
+    <Position X="4.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAEIAAAEAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Tip.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BS_Server.Models.User">
-    <Position X="6.5" Y="1.75" Width="1.5" />
+    <Position X="6.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAEAAACAAAACAAgAAQAAACAAAAAACAQAAYAAAARg=</HashCode>
       <FileName>Models\User.cs</FileName>

@@ -114,6 +114,10 @@ insert into Recommendation values(1, 'She was great5!')
 select * from Rating
 select * from Recommendation
 select * from Tips
+
+DELETE FROM Tips WHERE TipId = 2;
+DELETE FROM Tips WHERE TipId = 1;
+
 --EF Code
 /*
 scaffold-DbContext "Server = (localdb)\MSSQLLocalDB;Initial Catalog=BS_DB;User ID=Login;Password=shira123;" Microsoft.EntityFrameworkCore.SqlServer -OutPutDir Models -Context BSDbContext -DataAnnotations -force
