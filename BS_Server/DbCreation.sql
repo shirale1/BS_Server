@@ -77,20 +77,24 @@ Go
 
 
 
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('b@b.com','shira','levy', 'Hod Hasharon', '123','B Name', 'Female','0505805203') 
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('p@p.com','ziv','porat', 'Hod Hasharon', '123','P Name', 'Male','0506519451')
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('b@b.com','ziv','porat', 'Hod Hasharon', '123','B Name', 'Female','0505805203') 
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('p@p.com','marom','hai', 'Hod Hasharon', '123','P Name', 'Male','0506519451')
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('s@.com','shiri','kehat', 'Hod Hasharon', '123','S Name', 'Female','0541234567') 
 insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('parent@.com','amit','geva', 'Hod Hasharon', '1234','a Name', 'Male','0501234567')
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('shirale200@gmail.com','ori','geva', 'Hod Hasharon', '123','O Name', 'Male','0501234567')
-insert into Users (Email,FirstName,LastName, [Address], IsAdmin, [Password], UserName, Gender, Phone) VALUES 
-('admin@gmail.com','admin','adminlastname', 'france','1', '12345','admin1', 'Female','0505805205')
+insert into Users (Email,FirstName,LastName, [Address],IsAdmin, [Password], UserName, Gender, Phone) VALUES ('shirale200@gmail.com','shira','levy', 'Hod Hasharon','1', 's123','S Name', 'Male','0501234567')
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('noa20032007@gmail.com','noa','cohen', 'Hod Hasharon', 'n123','N Name', 'Female','0505805209') 
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('geva.ori1@gmail.com','ori','geva', 'Hod Hasharon', 'o123','O Name', 'Male','0505805208') 
 
+select * from users
 
 insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (1,'10-JAN-2009',0, 1,50)
-insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1)
-insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (3,'15-FEB-2007',1, 1,75)
-insert into Parents (ParentId, KidsN, Pets) values (4, 2, 0)
-insert into Parents (ParentId, KidsN, Pets) values (14, 1, 0)
+insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1, 2)
+insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (3,'15-FEB-2007',1, 1,75, 3)
+insert into Parents (ParentId, KidsN, Pets) values (4, 2, 0, 4)
+insert into Parents (ParentId, KidsN, Pets) values (14, 1, 0, 5)
+insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (6,'16-JAN-2008',1, 6,55)
+insert into Parents (ParentId, KidsN, Pets) values (7, 7, 1)
+
 
 Select * From Babysiters
 Select * From Users
