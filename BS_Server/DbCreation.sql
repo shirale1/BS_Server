@@ -77,13 +77,13 @@ Go
 
 
 
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('b@b.com','ziv','porat', 'Hod Hasharon', '123','B Name', 'Female','0505805203') 
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('p@p.com','marom','hai', 'Hod Hasharon', '123','P Name', 'Male','0506519451')
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('s@.com','shiri','kehat', 'Hod Hasharon', '123','S Name', 'Female','0541234567') 
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('parent@.com','amit','geva', 'Hod Hasharon', '1234','a Name', 'Male','0501234567')
-insert into Users (Email,FirstName,LastName, [Address],IsAdmin, [Password], UserName, Gender, Phone) VALUES ('shirale200@gmail.com','shira','levy', 'Hod Hasharon','1', 's123','S Name', 'Male','0501234567')
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('noa20032007@gmail.com','noa','cohen', 'Hod Hasharon', 'n123','N Name', 'Female','0505805209') 
-insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('geva.ori1@gmail.com','ori','geva', 'Hod Hasharon', 'o123','O Name', 'Male','0505805208') 
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('ziv@gmail.com','ziv','porat', 'Yitshak Ben Zvi Street, Hod Hasharon', '123','B Name', 'Female','0505805203') 
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('marom@gmail.com','marom','hai', 'Ezer Weizman Street, Hod Hasharon', '123','P Name', 'Male','0506519451')
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('shiri@gmail.com','shiri','kehat', 'Golda Meir Street, Hod Hasharon','123','S Name', 'Female','0541234567') 
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('parent@gmail.com','amit','geva', 'HaShikmim Street, Hod Hasharon', '1234','a Name', 'Male','0501234567')
+insert into Users (Email,FirstName,LastName, [Address],IsAdmin, [Password], UserName, Gender, Phone) VALUES ('shirale200@gmail.com','shira','levy', 'Nahshon Street, Hod Hasharon','1', 's123','S Name', 'Male','0501234567')
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('noa20032007@gmail.com','noa','cohen', 'Galgal HaMazalot Street, Hod Hasharon', 'n123','N Name', 'Female','0505805209') 
+insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Gender, Phone) VALUES ('geva.ori1@gmail.com','ori','geva', 'Kefar Sava, Israel', 'o123','O Name', 'Male','0505805208') 
 
 select * from users
 
