@@ -102,22 +102,34 @@ Select * From Parents
 Select * From Rating
 Select * From Tips
 
-insert into Rating values(1, 4)
-insert into Rating values(1, 2)
-insert into Rating values(2, 2)
-insert into Rating values(3, 2)
-insert into Rating values(4, 2)
-insert into Rating values(2, 2)
+insert into Rating (UserId, RatingValue) values(1, 4)
+insert into Rating (UserId, RatingValue) values(1, 5)
+insert into Rating (UserId, RatingValue) values(2, 5)
+insert into Rating (UserId, RatingValue) values(3, 4)
+insert into Rating (UserId, RatingValue) values(4, 4)
+insert into Rating (UserId, RatingValue) values(5, 3)
+insert into Rating (UserId, RatingValue) values(5, 4)
+insert into Rating (UserId, RatingValue) values(6, 3)
+insert into Rating (UserId, RatingValue) values(7, 5)
 
-insert into Recommendation values(1, 'She was great!')
-insert into Recommendation values(2, 'reliable and patient')
-insert into Recommendation values(3, 'Patient and nice with the children')
-insert into Recommendation values(4, 'very responsible')
-insert into Recommendation values(1, 'The best in town')
+insert into Recommendation (UserId,RecommendationText) values(1, 'She was great!')
+insert into Recommendation (UserId,RecommendationText) values(2, 'reliable and patient')
+insert into Recommendation (UserId,RecommendationText) values(3, 'Patient and nice with the children')
+insert into Recommendation (UserId,RecommendationText) values(4, 'very responsible')
+insert into Recommendation (UserId,RecommendationText) values(5, 'The best in town')
+insert into Recommendation (UserId,RecommendationText) values(6, 'She was great!')
+insert into Recommendation (UserId,RecommendationText) values(7, 'reliable and patient')
+
+insert into Tips(UserId, TipText, StatusId) values (1, 'bake with the kids', 1)
+insert into Tips(UserId, TipText, StatusId) values (2, 'play hide and seek', 1)
+insert into Tips(UserId, TipText, StatusId) values (2, 'Tell them a story and let them invent a new ending', 1)
+insert into Tips(UserId, TipText, StatusId) values (1, 'Have a fancy movie night', 3)
+insert into Tips(UserId, TipText, StatusId) values (1, 'Go to the park and play soccer', 3)
 
 select * from Rating
 select * from Recommendation
 select * from Tips
+
 
 --DELETE FROM Tips WHERE TipId = 2;
 --DELETE FROM Tips WHERE TipId = 1;
