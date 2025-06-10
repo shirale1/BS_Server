@@ -88,10 +88,10 @@ insert into Users (Email,FirstName,LastName, [Address], [Password], UserName, Ge
 select * from users
 
 insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (1,'10-JAN-2009',0, 1,50)
-insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1, 2)
-insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (3,'15-FEB-2007',1, 1,75, 3)
-insert into Parents (ParentId, KidsN, Pets) values (4, 2, 0, 4)
-insert into Parents (ParentId, KidsN, Pets) values (14, 1, 0, 5)
+insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1)
+insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (3,'15-FEB-2007',1, 1,75)
+insert into Parents (ParentId, KidsN, Pets) values (4, 2, 0)
+insert into Parents (ParentId, KidsN, Pets) values (14, 1, 0)
 insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (6,'16-JAN-2008',1, 6,55)
 insert into Parents (ParentId, KidsN, Pets) values (7, 7, 1)
 
@@ -110,17 +110,17 @@ insert into Rating values(4, 2)
 insert into Rating values(2, 2)
 
 insert into Recommendation values(1, 'She was great!')
-insert into Recommendation values(2, 'She was great2!')
-insert into Recommendation values(3, 'She was great3!')
-insert into Recommendation values(4, 'She was great4!')
-insert into Recommendation values(1, 'She was great5!')
+insert into Recommendation values(2, 'reliable and patient')
+insert into Recommendation values(3, 'Patient and nice with the children')
+insert into Recommendation values(4, 'very responsible')
+insert into Recommendation values(1, 'The best in town')
 
 select * from Rating
 select * from Recommendation
 select * from Tips
 
-DELETE FROM Tips WHERE TipId = 2;
-DELETE FROM Tips WHERE TipId = 1;
+--DELETE FROM Tips WHERE TipId = 2;
+--DELETE FROM Tips WHERE TipId = 1;
 
 --EF Code
 /*
