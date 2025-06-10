@@ -91,7 +91,6 @@ insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) va
 insert into Parents (ParentId, KidsN, Pets) values (2, 4, 1)
 insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (3,'15-FEB-2007',1, 1,75)
 insert into Parents (ParentId, KidsN, Pets) values (4, 2, 0)
-insert into Parents (ParentId, KidsN, Pets) values (14, 1, 0)
 insert into Babysiters (BabysiterId, BirthDate, License, ExperienceY,Payment) values (6,'16-JAN-2008',1, 6,55)
 insert into Parents (ParentId, KidsN, Pets) values (7, 7, 1)
 
