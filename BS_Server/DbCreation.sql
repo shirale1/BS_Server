@@ -111,19 +111,21 @@ insert into Rating (UserId, RatingValue) values(5, 4)
 insert into Rating (UserId, RatingValue) values(6, 3)
 insert into Rating (UserId, RatingValue) values(7, 5)
 
-insert into Recommendation (UserId,RecommendationText) values(1, 'She was great!')
-insert into Recommendation (UserId,RecommendationText) values(2, 'reliable and patient')
-insert into Recommendation (UserId,RecommendationText) values(3, 'Patient and nice with the children')
-insert into Recommendation (UserId,RecommendationText) values(4, 'very responsible')
-insert into Recommendation (UserId,RecommendationText) values(5, 'The best in town')
-insert into Recommendation (UserId,RecommendationText) values(6, 'She was great!')
-insert into Recommendation (UserId,RecommendationText) values(7, 'reliable and patient')
+insert into Recommendation (UserId,RecommendationText) values(1, 'always keeps the kids safe and entertained,we trust him completely')
+insert into Recommendation (UserId,RecommendationText) values(2, 'respectful, communicative, and always pay on time')
+insert into Recommendation (UserId,RecommendationText) values(3, 'handles our three energetic boys with calm and humor')
+insert into Recommendation (UserId,RecommendationText) values(4, 'make working with them easy')
+insert into Recommendation (UserId,RecommendationText) values(6, 'responsible, kind, and always on time')
+insert into Recommendation (UserId,RecommendationText) values(7, 'They genuinely care about your well-being and appreciate your work')
 
-insert into Tips(UserId, TipText, StatusId) values (1, 'bake with the kids', 1)
+insert into Tips(UserId, TipText, StatusId) values (1, 'bake with the kids', 1) 
 insert into Tips(UserId, TipText, StatusId) values (2, 'play hide and seek', 1)
-insert into Tips(UserId, TipText, StatusId) values (2, 'Tell them a story and let them invent a new ending', 1)
-insert into Tips(UserId, TipText, StatusId) values (1, 'Have a fancy movie night', 3)
-insert into Tips(UserId, TipText, StatusId) values (1, 'Go to the park and play soccer', 3)
+insert into Tips(UserId, TipText, StatusId) values (3, 'Tell them a story and let them invent a new ending', 1)
+insert into Tips(UserId, TipText, StatusId) values (4, 'Have a fancy movie night', 3)
+insert into Tips(UserId, TipText, StatusId) values (6, 'Plan short outdoor playtime to release energy', 3)
+insert into Tips(UserId, TipText, StatusId) values (7, 'Use songs and games to make cleanup time fun', 3)
+
+
 
 select * from Rating
 select * from Recommendation
